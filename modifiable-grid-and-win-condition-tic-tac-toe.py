@@ -1,3 +1,4 @@
+#basic setup functions
 def INPUT(string,vartype):
     while True:
         try:
@@ -30,6 +31,10 @@ def CONTAINS (array,item): #outputs true or false depending if item is in array
     return False
 
 
+
+
+
+#mechanics 
 def printBoard(board):
     print("   "+" ".join(list(map(str,list(range(len(board[0])))))))
     
@@ -48,26 +53,57 @@ def playerToXO (player):
 
 
 def checksurroundings (loc, coordinates,streak,winCond,d):
-    if d==0: d=[[0,1],[1,1],[1,0],[1,-1]]
-    for dx,dy in d:
-        if CONTAINS(loc,[coordinates[0]+dx,coordinates[1]+dy]):
-            if streak==winCond-1:
-                return True
-            else:
-                return checksurroundings(loc, [coordinates[0]+dx,coordinates[1]+dy],streak+1,winCond,d)
+    dx, dy = d
+    if CONTAINS(loc,[coordinates[0]+dx,coordinates[1]+dy]):
+        print(str([coordinates[0]+dx,coordinates[1]+dy,streak,d]))#debugging
+        if streak==winCond-1:
+            return True
+        else:
+            return checksurroundings(loc, [coordinates[0]+dx,coordinates[1]+dy],streak+1,winCond,d)
     else:
         return False
+
     
     
 def checkWin(loc,player,winCond):
     #loc[player] is the collection of all places where the player has moved
     for i in loc[player]:
-        if checksurroundings(loc[player],i,1,winCond,0)== True:
-            print(player+" wins")
-            return True
+        for d in [[0,1],[1,1],[1,0],[1,-1]]:
+            if checksurroundings(loc[player],i,1,winCond,d)== True:
+                print(player+" wins")
+                return True
     else:
         return False
-        
+
+
+def humanplay(board,player,loc):
+    move = INPUT("input move: (\"x y\")","LI2")
+
+    #check move is valid, and updates the board
+    if (0<=move[1] and move[1]<len(board) ) and (0<=move[0] and move[0]<len(board[0])):
+        if board[move[1]][move[0]]=="_":
+            board[move[1]][move[0]]=player
+            loc[player].append(move)
+            return board,loc
+        else:
+            print("this spot is full try again")
+            return humanplay(board,player,loc)
+    else:
+        print("this spot is invalid")
+        return humanplay(board,player,loc)
+
+
+  
+def machineplay(boardSize,board,player,loc): #does nothing yet
+    pass
+
+
+
+
+
+
+
+#game     
 def intro():
     print("hello humans")
     print("this is an attempt to create an more advanced game of tictaktoe")
@@ -75,26 +111,25 @@ def intro():
     print("but...")
     print("this game has the option to change board size")
     print("in addition to changing the amount of consecutive tiles")
-    
-    print("in addition to playing against a perfect AI, which tells you the expected and inevitable result of the game")
-    print("this is my first time in python creating something this large, from scratch")
-    print("this requires extensive usage of functions")
+    print("-------------------------------------------------------")
 
    
         
         
 def init(): #initiation of run function, or of a game
+    print("-------------------------------------------------------")
     play = input("would you like to play? (\"Y\")")
-    #manOrMachine = input("decide which player is an AI.(HH,AA,AH,HA)")
     manOrMachine = "HH"
-    boardSize = INPUT("input board size: (\"width length\")","LI")
-    winCond = int(input("how much consecutuve tiles to win? (int)"))
-    return play, manOrMachine, boardSize,winCond
+    if play == "Y":
+        boardSize = INPUT("input board size: (\"width length\")","LI")
+        winCond = INPUT("how much consecutuve tiles to win? (int)","I")
+        return play,boardSize,winCond
+    return play,0,0
 
 
 
 def run():
-    play, manOrMachine, boardSize,winCond = init()
+    play, boardSize,winCond = init()
     #play="Y"
     #boardSize = [5,5] #remove after testing
     #winCond= 3
@@ -106,9 +141,9 @@ def run():
         turn = 1 #it is player 1's turn if true, else p2's turn
         board = []
         loc = {"X":[],"O":[]}
-        for x in range(boardSize[0]):
-            print()
-            board.append(["_"] * boardSize[1])
+        
+        for x in range(boardSize[1]):   #creates board
+            board.append(["_"] * boardSize[0])
         printBoard(board)
 
         run = True
@@ -123,43 +158,14 @@ def run():
             
             turn+=1
             
-
-
-
-
-
         
-        return False #only 1 game
+        return True
+
+
 
 def game():
     playing = True
-    #intro()
+    intro()
     while playing:
         playing = run()
-
-
-
-
-def humanplay(board,player,loc):
-    move = INPUT("input move: (\"x y\")","LI2")
-
-    #check move is valid, and updates the board
-    if (0<=move[1] and move[1]<len(board) ):
-        if board[move[1]][move[0]]=="_":
-            board[move[1]][move[0]]=player
-            loc[player].append(move)
-            return board,loc
-        else:
-            print("this spot is full try again")
-            return humanplay(board,player,loc)
-    else:
-        print("this spot is invalid")
-        return humanplay(board,player,loc)
-
-
-
-
-    
-def machineplay(boardSize,board,player,loc):
-    pass
 
