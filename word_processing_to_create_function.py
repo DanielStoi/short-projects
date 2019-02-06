@@ -1,8 +1,22 @@
 """
 type in a function, using how many variables you want, in any location, able to use (,),*,/,^,+,- as operators
-write what values you want the variables to represent when calculating the function
+when running this program, defult is 1 variable, "x" which is set to 5.
 
-defult is 1 variable, x which is set to 5, however any amount of variables are allowed
+getfunctionfrominput(str)->
+gets a string and turns in into a function, can have multiple variables
+spacing is unimportant
+
+calculate(funct,varValues) ->
+gets function as returned by getfunctionfrominput(), and list of variables
+with corresponding values (in dictionary form) to return the answer
+
+eg:
+from word_processing_to_creat_function import *
+varValues = {"x":25,"y":151,"z":231}
+funct=getfunctionfrominput(" z ^ ( y  ^  x  ) ")
+ans= calculate(funct,varValues)
+print(ans)
+
 """
 def digit(dd,pfct):
     if len(dd)>0:
