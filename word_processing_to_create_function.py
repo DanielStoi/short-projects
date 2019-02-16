@@ -29,10 +29,8 @@ def getfunctionfrominput(rfct):
     #this will be processed by 
     pfct = []
     dd="" #for grouping things into digits
-    #print("----")
     i=0
     while i<len(rfct):
-        #print(rfct[i])
         for d in range(10):
             if rfct[i]==str(d) or rfct[i]==".":
                 dd+=rfct[i]
@@ -41,17 +39,10 @@ def getfunctionfrominput(rfct):
         else:
             [dd,pfct]=digit(dd,pfct)
         if rfct[i]=="(":
-            #print("yeet")
             [subf,di] = getfunctionfrominput(rfct[i+1:])
-            #print([subf,di])
             pfct.append(subf)
-            #print(pfct)
             i+=di
-            #print(i)
-            #print("(->"+rfct[i])
         elif rfct[i]==")":
-            #print("yoot")
-            #print(pfct)
             return [pfct,i+1]
         elif rfct[i]!=" ":
             pfct.append(rfct[i])
@@ -116,5 +107,5 @@ def calculate(funct, varValues):
     
     
 k=getfunctionfrominput(list(input("type in function:")))
-print(k)
-print(calculate(k,{"x":5}))
+x = int(input("what value do you want x to be?:"))
+print(calculate(k,{"x":x}))
