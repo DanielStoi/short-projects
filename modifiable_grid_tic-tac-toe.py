@@ -168,4 +168,4 @@ def game():
     intro()
     while playing:
         playing = run()
-
+game()
