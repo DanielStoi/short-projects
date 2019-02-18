@@ -43,9 +43,9 @@ def logic(v1,v2,operation):
         ans= (i1 ^ i2)
     return ans^p3
 
-class logicGate_neutralNetwork (neuro_net=[],depth=0):
-    layercount=depth
-    layer=neuro_net
+class logicGate_neutralNetwork ():
+    layercount=0
+    layer=[]
     def init(self,layercount,inpnumb,outpnumb): #initiate or reset 
         self.layercount=layercount
         layer=[[]]*(layercount+2)
