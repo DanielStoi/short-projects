@@ -17,7 +17,7 @@ def setUp(VarNum):
     for i in range(VarNum):
         ans+="int "+"i"+str(i)+";"+"\n"
         ans+="printf(\"Enter integer:\");\n"
-        ans+= "scanf(\"\%d\", &i"+str(i)+");\n"
+        ans+= "scanf(\"%d\", &i"+str(i)+");\n"
         ans+="int sort"+str(i)+"; \n"
     ans+="int i"+str(VarNum)+"; \n"
     ans+="int check = 1;\n"
