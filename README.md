@@ -7,7 +7,7 @@ contains some short projects that that usually are meant to implement an idea or
 ### tic tac toe
 * can change how much consecutive X's or O's to win
 * can change board size
-* no proper UI, instead text
+* no proper UI, instead text based
 
 ### maths operation sorting program generator
 * generates a C program that is capable of sorting integers greater or equal to 1, through only math operations(mod,divide,multiply,plus,minus), without any if, while statement or any other conditional operators. Based off a UNSW challenge exercise.
