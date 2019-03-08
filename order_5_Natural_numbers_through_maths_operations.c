@@ -2,23 +2,23 @@
 int main (void) { 
 int i0;
 printf("Enter integer:");
-scanf("\%d", &i0);
+scanf("%d", &i0);
 int sort0; 
 int i1;
 printf("Enter integer:");
-scanf("\%d", &i1);
+scanf("%d", &i1);
 int sort1; 
 int i2;
 printf("Enter integer:");
-scanf("\%d", &i2);
+scanf("%d", &i2);
 int sort2; 
 int i3;
 printf("Enter integer:");
-scanf("\%d", &i3);
+scanf("%d", &i3);
 int sort3; 
 int i4;
 printf("Enter integer:");
-scanf("\%d", &i4);
+scanf("%d", &i4);
 int sort4; 
 int i5; 
 int check = 1;
