@@ -5,11 +5,6 @@ contains some non trivial short projects which implements some idea or concept. 
 
 ## description of some of the projects:
 
-### tic tac toe
-* can change how much consecutive X's or O's to win
-* can change board size
-* no proper UI, instead text based
-
 ### maths operation sorting program generator
 * generates a C program that is capable of sorting integers greater or equal to 1, through only math operations(mod,divide,multiply,plus,minus), without any if, while statement or any other conditional operators.
 * however one should note that the size of the program generated grows exponentially as the amount of integers being sorted increases
@@ -18,3 +13,10 @@ contains some non trivial short projects which implements some idea or concept. 
 
 ### functions
 word_processing_to_create_function and circuit_simulator take in a specific format of information(strs, and nested lists +ints and strs respectively) and processes them to the proper corresponding function. Program can then be run with different inputs, either being different numerical values for the variables or a different combination of 1's and 0's as boolean values, both of which generate a corresponding answer in each program.
+
+### tic tac toe
+* can change how much consecutive X's or O's to win
+* can change board size
+* no proper UI, instead text based
+
+
