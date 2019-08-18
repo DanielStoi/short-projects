@@ -5,7 +5,7 @@ contains some non trivial short projects which implements some idea or concept. 
 
 ## description of some of the projects:
 
-### maths operation sorting program generator
+### modular arithmetic sorting compiler
 * generates a C program that is capable of sorting integers greater or equal to 1, through only math operations(mod,divide,multiply,plus,minus), without any if, while statement or any other conditional operators.
 * however one should note that the size of the program generated grows exponentially as the amount of integers being sorted increases
 * blatant inefficencies in the generated code
