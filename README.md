@@ -14,8 +14,8 @@ contains some non trivial short projects which implements some idea or concept. 
 ### functions
 word_processing_to_create_function and circuit_simulator take in a specific format of information(strs, and nested lists +ints and strs respectively) and processes them to the proper corresponding function. Program can then be run with different inputs, either being different numerical values for the variables or a different combination of 1's and 0's as boolean values, both of which generate a corresponding answer in each program.
 
-### $n^{2} - n^{2}$ sukodu solver
-solves a sudoku puzzle of any valid size from input. Puzzle has n^2 rows, columns and "boxes" in which no two of the same number can be within
+### n^2 - n^2 sukodu solver
+solves a sudoku puzzle of any valid size from input. Puzzle has n^2 rows, columns and "boxes" in which must have different numbers within.
 
 ### tic tac toe
 * can change how much consecutive X's or O's to win
